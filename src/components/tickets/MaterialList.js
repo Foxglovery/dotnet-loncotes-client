@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { Table } from "reactstrap";
-import { getMaterials } from "../../data/materialsData";
+import { Table, Button } from "reactstrap";
+import { Decirculate, getMaterials } from "../../data/materialsData";
 import { Link } from "react-router-dom";
 
 export default function MaterialList() {
@@ -10,6 +10,15 @@ export default function MaterialList() {
     getMaterials().then(setMaterials);
   }, []);
 
+  //place button
+  //define function
+  //ensure fetch
+  //
+  const handleDecirculate = (id) => {
+    Decirculate(id).then(() => {
+      getMaterials().then(setMaterials);
+    });
+  };
   return (
     <div className="container">
       <div className="sub-menu bg-light">
@@ -35,6 +44,11 @@ export default function MaterialList() {
               <td>{m.genre.name}</td>
               <td>
                 <Link to={`${m.id}`}>Details</Link>
+              </td>
+              <td>
+                <Button onClick={() => handleDecirculate(m.id)}>
+                  De-circulate
+                </Button>
               </td>
             </tr>
           ))}

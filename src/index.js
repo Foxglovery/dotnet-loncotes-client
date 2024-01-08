@@ -8,21 +8,39 @@ import MaterialList from "./components/tickets/MaterialList";
 import MaterialDetails from "./components/tickets/MaterialDetails";
 import CreateMaterial from "./components/tickets/CreateMaterial";
 import PatronList from "./components/patrons/PatronList";
+import PatronDetails from "./components/patrons/PatronDetails";
+import UpdatePatron from "./components/patrons/UpdatePatron";
+import CheckoutList from "./components/checkouts/CheckoutList";
+import BrowseMaterials from "./components/tickets/BrowseMaterials";
+import CreateCheckout from "./components/checkouts/CreateCheckout";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />}>
+
         <Route path="materials">
           <Route index element={<MaterialList />} />
           <Route path=":id" element={<MaterialDetails />} />
           <Route path="create" element={<CreateMaterial />} />
         </Route>
+
         <Route path="patrons">
         <Route index element={<PatronList />} />
+        <Route path=":id" element={<PatronDetails />} />
+        <Route path="edit/:id" element={<UpdatePatron />} />
         </Route>
-      </Route>
+
+        <Route path="checkouts"/>
+          <Route index element={<CheckoutList />}/>
+        </Route>
+
+        <Route path="/browse" >
+          <Route index element={<BrowseMaterials />} />
+          <Route path="create/:id" element={<CreateCheckout />} />
+        </Route>
+      
     </Routes>
   </BrowserRouter>,
 );
