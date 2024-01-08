@@ -1,0 +1,2 @@
+to display all patrons with active status
+make patron component folder, make PatronList.js
