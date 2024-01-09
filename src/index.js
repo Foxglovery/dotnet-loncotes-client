@@ -32,15 +32,15 @@ root.render(
         <Route path="edit/:id" element={<UpdatePatron />} />
         </Route>
 
-        <Route path="checkouts"/>
+        <Route path="checkouts">
           <Route index element={<CheckoutList />}/>
         </Route>
 
-        <Route path="/browse" >
+        <Route path="browse" >
           <Route index element={<BrowseMaterials />} />
           <Route path="create/:id" element={<CreateCheckout />} />
         </Route>
-      
+      </Route>
     </Routes>
   </BrowserRouter>,
 );
