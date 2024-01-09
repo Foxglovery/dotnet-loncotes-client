@@ -44,8 +44,8 @@ export default function CheckoutList() {
                         <td>{c.material.materialName}</td>
                         <td>{c.material.materialType.name}</td>
                         {/* format this to be nice looking */}
-                        <td>{c.checkoutDate}</td>
-                        <td>{c.returnDate == null ? "In Use" : c.returnDate}</td>
+                        <td>{c.checkoutDate.split("T")[0]}</td>
+                        <td>{c.returnDate == null ? "In Use" : c.returnDate.split("T")[0]}</td>
                         <td>{c.lateFee == null ? "N/A" : c.lateFee}</td>
                         <td>{!c.returnDate ?
                         <Button

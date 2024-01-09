@@ -27,3 +27,4 @@ export const Decirculate = (id) => {
 export const GetAvailable = () => {
   return fetch(`${_apiUrl}/available`).then((res) => res.json());
 };
+
