@@ -1,7 +1,18 @@
 const _apiUrl = "/api/materials";
 
-export const getMaterials = () => {
-  return fetch(_apiUrl).then((r) => r.json());
+export const getMaterials = (GenreId, MaterialTypeId) => {
+  //define new url search params
+  let queryParams = new URLSearchParams();
+//check if null, if not, append them to the url param
+  if (GenreId != null) {
+    queryParams.append('GenreId', GenreId)
+  }
+  if (MaterialTypeId != null) {
+    queryParams.append('MaterialTypeId', MaterialTypeId)
+  }
+  //combine the pieces
+  const queryUrl = `${_apiUrl}?${queryParams}`;
+  return fetch(queryUrl).then((r) => r.json());
 };
 
 //export a function here that gets a ticket by id
